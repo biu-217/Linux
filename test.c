@@ -5,26 +5,69 @@
 #include <sys/statvfs.h>
 
 // 函数声明
+
+// 主菜单显示函数
+// 显示程序的主菜单界面,包括硬件信息读取、健康状态检测、温度监控和帮助文档等选项
 void showMainMenu(void);
+
+// 硬件信息菜单显示函数
+// 显示硬件信息相关的子菜单,包括CPU信息、内存信息和硬盘信息的查看选项
 void showHardwareInfoMenu(void);
+
+// 硬件健康状态菜单显示函数
+// 显示硬件健康状态检测的子菜单,包括SMART监测和电池健康状态检测选项
 void showHealthCheckMenu(void);
+
+// 温度监控菜单显示函数
+// 显示温度监控相关的子菜单,提供开始监控温度的选项
 void showTemperatureMenu(void);
+
+// 帮助菜单显示函数
+// 显示帮助相关的子菜单,包括用户手册和帮助命令的查看选项
 void showHelpMenu(void);
 
 // 硬件信息相关函数
+// CPU信息获取函数
+// 通过读取/proc/cpuinfo和/proc/loadavg文件获取CPU的详细信息
+// 包括处理器型号、核心数、频率、缓存大小和CPU负载等信息
 void getCPUInfo(void);
+
+// 内存信息获取函数
+// 通过读取/proc/meminfo文件获取内存使用情况
+// 包括物理内存和交换空间的总量、已用量、可用量等信息
 void getMemoryInfo(void);
+
+// 硬盘信息获取函数
+// 通过读取/proc/mounts文件和使用statvfs系统调用获取磁盘使用情况
+// 显示各个分区的总容量、可用容量和使用率等信息
 void getDiskInfo(void);
 
 // 硬件健康状态相关函数
+// SMART硬盘健康检测函数
+// 使用smartctl工具检查硬盘的SMART状态
+// 显示硬盘健康状态、温度和重要SMART属性值
 void checkSMART(void);
+
+// 电池健康状态检测函数
+// 通过读取/sys/class/power_supply下的文件获取电池信息
+// 显示电池状态、容量、循环次数、电压等信息,并评估电池健康度
 void checkBatteryHealth(void);
 
 // 温度监控相关函数
+// 温度监控函数
+// 实时监控CPU和硬盘温度
+// 定期更新显示温度数据,并提供温度预警提示
 void monitorTemperature(void);
 
 // 帮助文档相关函数
+// 用户手册显示函数
+// 显示软件的详细使用说明
+// 包括功能介绍、使用方法、注意事项和技术支持信息等
 void showUserManual(void);
+
+// 帮助命令显示函数
+// 显示Linux系统下常用的硬件信息查看命令
+// 包括CPU、内存、硬盘、网络等相关命令的说明
 void showHelpCommands(void);
 
 int main() {
